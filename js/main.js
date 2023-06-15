@@ -55,7 +55,7 @@ const addPokemon = async (event) => {
     }
 }
 
-const refreshPokemon = async (event) => {
+const editPokemon = async (event) => {
     const divPokemon = event.target.closest('.pokemon')
     const pokemonName = divPokemon.querySelector('h2').textContent.toLowerCase()
     try{
@@ -100,17 +100,17 @@ const removePokemon = (event) => {
 const handlePokemonMouseEnter = (event) => {
     const pokemon = event.target
     const btnClose = pokemon.querySelector(".btn-close")
-    const btnRefresh = pokemon.querySelector(".btn-refresh")
+    const btnEdit = pokemon.querySelector(".btn-edit")
     btnClose.style.display = "block"
-    btnRefresh.style.display = "block"
+    btnEdit.style.display = "block"
 }
 
 const handlePokemonMouseLeave = (event) => {
     const pokemon = event.target
     const btnClose = pokemon.querySelector(".btn-close")
-    const btnRefresh = pokemon.querySelector(".btn-refresh")
+    const btnEdit = pokemon.querySelector(".btn-edit")
     btnClose.style.display = "none"
-    btnRefresh.style.display = "none"
+    btnEdit.style.display = "none"
 }
 
 const addPokemonsEvents = () => {
@@ -138,7 +138,7 @@ const renderPokemons = () => {
         newPokemon = 
             `<div class="pokemon">
                 <button class="btn-close" onclick="removePokemon(event)">x</button>
-                <button class="btn-refresh" onclick="openModal('#edit-pokemon')">✎</button>
+                <button class="btn-edit" onclick="openModal('#edit-pokemon')">✎</button>
                 <p>#${pokemon.id}</p>
                 <h2>${pokeName}</h2>
                 <img src="${pokemon.sprite}" alt="">
@@ -151,7 +151,7 @@ const renderPokemons = () => {
         newPokemon = 
             `<div class="pokemon">
                 <button class="btn-close" onclick="removePokemon(event)">x</button>
-                <button class="btn-refresh" onclick="openModal('#edit-pokemon')">✎</button>
+                <button class="btn-edit" onclick="openModal('#edit-pokemon')">✎</button>
                 <p>#${pokemon.id}</p>
                 <h2>${pokeName}</h2>
                 <img src="${pokemon.sprite}" alt="">
@@ -172,7 +172,7 @@ modal.addEventListener("click", handleModalClose)
 addPokemonsEvents()
 
 let pokemonsList = [
-    {name: 'bulbasaur', id: 1, types: ['fire', 'poison'], sprite: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png'}, 
+    {name: 'bulbasaur', id: 1, types: ['grass', 'poison'], sprite: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png'}, 
     {name: 'ivysaur', id: 2, types: ['grass', 'poison'], sprite: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/2.png'}, 
     {name: 'venusaur', id: 3, types: ['grass', 'poison'], sprite: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/3.png'}, 
     {name: 'charmander', id: 4, types: ['fire'], sprite: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/4.png'}, 

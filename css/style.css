@@ -78,7 +78,7 @@ body {
 }
 
 .modal .modal-content button.btn-close, #pokemons-list .pokemon button.btn-close,
-#pokemons-list .pokemon button.btn-refresh {
+#pokemons-list .pokemon button.btn-edit {
     position: absolute;
     top: 0;
     right: 10px;
@@ -155,7 +155,7 @@ body {
     display: none;
 }
 
-#pokemons-list .pokemon button.btn-refresh{
+#pokemons-list .pokemon button.btn-edit{
     right: 25px;
     top: -7px;
     display: none;
