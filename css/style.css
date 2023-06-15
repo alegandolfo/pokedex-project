@@ -122,6 +122,10 @@ body {
     position: relative;
 }
 
+#pokemons-list .pokemon:hover{
+    background: #2F2F2F;
+}
+
 #pokemons-list .pokemon p {
     position: absolute;
     top: -15px;
