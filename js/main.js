@@ -3,11 +3,6 @@ const openModal = (idModal) => {
     divModal.style.display = "flex"
 }
 
-const openEditModal = (idModal, idPokemon) => {
-    const divModal = document.querySelector(idModal)
-    divModal.style.display = "flex"
-}
-
 const closeModal = (idModal) => {
     const divModal = document.querySelector(idModal)
     divModal.style.display = "none"
