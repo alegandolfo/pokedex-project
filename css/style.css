@@ -1,0 +1,162 @@
+html, body {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    background-image: url("/img/background.jpg"), linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7));
+    background-blend-mode: overlay;
+    color: #FFF;
+    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen,Ubuntu,Cantarell,"Fira Sans","Droid Sans","Helvetica Neue",sans-serif
+}
+
+#main-header{
+    height: 60px;
+    background: #FFF;
+    padding: 0 20px;
+}
+
+#main-header h1{
+    margin: 0;
+    color: #000;
+}
+
+#main-header img{
+    width: 40px;
+    height: 40px;
+}
+
+#main-header .wrapper{
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    height: 60px;
+}
+
+#main-header span{
+    color: #ff3131;
+}
+
+#main-header button{
+    margin: 0 0 0 auto;
+    background-color: #ff3131;
+    border: 2px solid #ff3131;
+    color: #FFF;
+    font-size: 1.2rem;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#main-header button:hover{
+    background: #000;
+}
+
+.wrapper{
+    margin: 0 auto;
+}
+
+.modal{
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: #000000a1;
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal .modal-content{
+    width: 400px;
+    min-width: 300px;
+    min-height: 100px;
+    background: #373737;
+    border-radius: 20px;
+    padding: 20px;
+    position: relative;
+}
+
+.modal .modal-content button.btn-close, #pokemons-list .pokemon button.btn-close,
+#pokemons-list .pokemon button.btn-refresh {
+    position: absolute;
+    top: 0;
+    right: 10px;
+    font-size: 20px;
+    border: none;
+    background: none;
+    color: #FFF;
+    padding: 10px;
+    cursor: pointer;  
+}
+
+.modal .modal-content h1{
+    margin: 0;
+}
+
+#add-pokemon form{
+    margin: 20px 0 0 0;
+}
+
+#edit-pokemon form{
+    margin: 20px 0 0 0;
+}
+
+#pokemons-list{
+    display: flex;
+    gap: 30px;
+    padding: 30px;
+    flex-wrap: wrap;
+}
+
+#pokemons-list .pokemon{
+    background: #222;
+    padding: 20px;
+    border-radius: 15px;
+    width: 13%;
+    height: 13%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+}
+
+#pokemons-list .pokemon p {
+    position: absolute;
+    top: -15px;
+    left: 5px;
+    line-height: 14px;
+    font-size: 15px;
+    border: none;
+    background: none;
+    color: #FFF;
+    padding: 10px;
+}
+
+#pokemons-list .pokemon h2{
+    margin: 0;
+}
+
+#types-list {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 10px;
+}
+
+#pokemons-list .pokemon h4{
+    margin: 0;
+}
+
+#pokemons-list .pokemon button.btn-close{
+    line-height: 14px;
+    right: 5px;
+    display: none;
+}
+
+#pokemons-list .pokemon button.btn-refresh{
+    right: 25px;
+    top: -7px;
+    display: none;
+}
