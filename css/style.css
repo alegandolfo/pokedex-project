@@ -33,12 +33,15 @@ body {
     height: 60px;
 }
 
+#main-header .buttons{
+    margin: 0 0 0 auto;
+}
+
 #main-header span{
     color: #ff3131;
 }
 
 #main-header button{
-    margin: 0 0 0 auto;
     background-color: #ff3131;
     border: 2px solid #ff3131;
     color: #FFF;
@@ -56,7 +59,7 @@ body {
 }
 
 .modal{
-    position: absolute;
+    position: fixed;
     top: 0;
     right: 0;
     bottom: 0;
@@ -75,6 +78,14 @@ body {
     border-radius: 20px;
     padding: 20px;
     position: relative;
+}
+
+.modal form.text-line{
+    margin-top: 10px;
+}
+
+#add-bulk-pokemon form .text-line{
+    margin: 10px 0 10px 0;
 }
 
 .modal .modal-content button.btn-close, #pokemons-list .pokemon button.btn-close,
@@ -126,6 +137,14 @@ body {
     background: #2F2F2F;
 }
 
+#pokemons-list .pokemon:hover .regular-img{
+    display: none;
+}
+
+#pokemons-list .pokemon:hover .hover-img{
+    display: inline;
+}
+
 #pokemons-list .pokemon p {
     position: absolute;
     top: -15px;
@@ -136,6 +155,10 @@ body {
     background: none;
     color: #FFF;
     padding: 10px;
+}
+
+#pokemons-list .pokemon .hover-img{
+    display: none;
 }
 
 #pokemons-list .pokemon h2{

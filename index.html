@@ -13,7 +13,10 @@
             <div class="wrapper">
                 <img src="img/pokeball-logo.svg" alt="Logo Pokeball">
                 <h1>Pokédex <span>Project</span></h1>
-                <button onclick="openModal('#add-pokemon')">+</button>
+                <div class="buttons">
+                    <button class="btn-bulk" onclick="openModal('#add-bulk-pokemon')">+++</button>
+                    <button onclick="openModal('#add-pokemon')">+</button>
+                </div>
             </div>
         </header>
         <div class="wrapper" id="pokemons-list">
@@ -26,6 +29,23 @@
                     <label for="pokemon">Pokémon:</label>
                     <input type="text" name="pokemon" id="pokemon" />
                     <input type="submit" value="Add Pokémon" />
+                </form>
+            </div>
+        </div>
+        <div class="modal" id="add-bulk-pokemon">
+            <div class="modal-content">
+                <h1>Add Pokémon in Bulk</h1>
+                <button class="btn-close" onclick="closeModal('#add-bulk-pokemon')">x</button>
+                <form onsubmit="addBulkPokemon(event)">
+                    <div class="text-line">
+                        <label for="limit">Limit:</label>
+                        <input type="text" name="limit" id="limit" />
+                    </div>
+                    <div class="text-line">
+                        <label for="offset">Offset:</label>
+                        <input type="text" name="offset" id="offset" />
+                    </div>
+                    <input type="submit" value="Add Pokémon"/>
                 </form>
             </div>
         </div>
