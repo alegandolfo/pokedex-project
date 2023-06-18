@@ -121,7 +121,7 @@ body {
 }
 
 #pokemons-list .pokemon{
-    background: #222;
+    background: #111;
     padding: 20px;
     border-radius: 15px;
     width: 13%;
@@ -134,7 +134,7 @@ body {
 }
 
 #pokemons-list .pokemon:hover{
-    background: #2F2F2F;
+    background: #222;
 }
 
 #pokemons-list .pokemon:hover .regular-img{
