@@ -23,7 +23,7 @@ const addPokemon = async (event) => {
     })
     
     if(pokemonWasFound){
-        alert("Pokemon já adicionado!")
+        alert("This pokémon has already been added!")
         return
     }
 
