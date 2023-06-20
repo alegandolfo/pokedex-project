@@ -84,10 +84,6 @@ body {
     margin-top: 10px;
 }
 
-#add-bulk-pokemon form .text-line{
-    margin: 10px 0 10px 0;
-}
-
 .modal .modal-content button.btn-close, #pokemons-list .pokemon button.btn-close,
 #pokemons-list .pokemon button.btn-edit {
     position: absolute;
@@ -107,6 +103,14 @@ body {
 
 #add-pokemon form{
     margin: 20px 0 0 0;
+}
+
+#add-bulk-pokemon form{
+    margin: 20px 0 0 0;
+}
+
+#add-bulk-pokemon form .text-line{
+    margin: 0 0 10px 0;
 }
 
 #edit-pokemon form{
