@@ -122,12 +122,13 @@ const editPokemon = async (event, pokemonName) => {
 const removePokemon = (event) => {
     const btnClose = event.target
     const pokemon = btnClose.closest('.pokemon')
-    const h2Pokemon = pokemon.querySelector('h2')
-    const pokemonName = h2Pokemon.textContent.toLowerCase()
+    const htmlPokemon = pokemon.querySelector('p')
+    const pokemonId = parseInt(htmlPokemon.textContent.slice(1))
     const newPokemonList = pokemonsList.filter((pokemon) => {
-        return pokemon.name !== pokemonName
+        return pokemon.id !== pokemonId
     })
     pokemonsList = newPokemonList
+    console.log(pokemonsList)
     renderPokemons()
 }
 
