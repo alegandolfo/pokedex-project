@@ -188,6 +188,19 @@ const renderPokemons = () => {
                 <h4><span class="type ${pokemon.types[0]}"></span></h4>
             </div>`
         }
+
+        let newPokemonImg
+        if (pokemon.id < 906) {
+            newPokemonImg = 
+            `<img src="${pokemon.sprite}" alt="" class="regular-img">
+             <img src="${pokemon.shiny}" alt="" class="hover-img">`
+        } else {
+            newPokemonImg = 
+            `<img src="${pokemon.sprite}" alt="" class="regular-img">
+             <img src="${pokemon.sprite}" alt="" class="hover-img">`
+        }
+
+        console.log(newPokemonImg)
         
         const newPokemon = 
             `<div class="pokemon">
@@ -195,8 +208,7 @@ const renderPokemons = () => {
                 <button class="btn-edit" onclick="renderEditModal('${pokemon.name}')">✎</button>
                 <p>#${pokemon.id}</p>
                 ${newPokemonTitle}
-                <img src="${pokemon.sprite}" alt="" class="regular-img">
-                <img src="${pokemon.shiny}" alt="" class="hover-img">
+                ${newPokemonImg}
                 ${newPokemonTypes}
             </div>`
 
