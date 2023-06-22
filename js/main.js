@@ -234,7 +234,7 @@ const renderEditModal = (pName) => {
             <button class="btn-close" onclick="closeModal('#edit-pokemon')">x</button>
             <form onsubmit="editPokemon(event, '${pokemon.name}')">
                 <label for="pokemon">Nickname:</label>
-                <input type="text" name="pokemon" id="pokemon" placeholder="Create a nickname for your pokémon!" />
+                <input type="text" name="pokemon" id="pokemon" placeholder="Create a nickname for your pokémon!" value="${pokemon.nickname}"/>
                 <input type="submit" value="Edit Pokémon" />
             </form>
         </div>`
