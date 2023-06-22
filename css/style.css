@@ -149,6 +149,7 @@ input[type=submit] {
     text-transform: uppercase;
     font-weight: 600;
     transition: all 0.2s ease-in;
+    cursor: pointer;
 }
 
 #add-bulk-pokemon input[type=submit] {
