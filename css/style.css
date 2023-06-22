@@ -183,6 +183,8 @@ body {
     /*display: none;*/
     position: absolute;
     margin: 20%;
+    opacity: 1;
+    transition: opacity 0.5s ease-in;
 }
 
 #pokemons-list .pokemon .hover-img {
@@ -190,11 +192,25 @@ body {
     position: absolute;
     margin: 20%;
     opacity: 0;
+    transition: opacity 0.5s ease-in;
 }
 
 #pokemons-list .pokemon h2 {
     margin: 0;
     font-size: 20px;
+}
+
+#pokemons-list .pokemon span.type {
+    text-transform: uppercase;
+    text-shadow: 2px 2px rgba(0,0,0, 0.2);
+    font-weight: 600;
+    transition: all 0.2s ease-in;
+}
+
+#pokemons-list .pokemon span.type:hover {
+    background-color: black;
+    text-shadow: 2px 2px rgba(255,255,255, 0.2);
+    transition: all 0.2s ease-in;
 }
 
 #types-list {
