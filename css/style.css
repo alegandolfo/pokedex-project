@@ -215,7 +215,7 @@ body {
 }
 
 #pokemons-list .pokemon button.btn-close:hover {
-    background-color: #ff3131;
+    color: #ff3131;
 }
 
 #pokemons-list .pokemon button.btn-edit {
@@ -225,5 +225,5 @@ body {
 }
 
 #pokemons-list .pokemon button.btn-edit:hover {
-    background-color: #ff3131;
+    color: #ffff00;
 }
