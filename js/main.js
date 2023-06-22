@@ -54,7 +54,7 @@ const addPokemon = async (event) => {
 const addBulkPokemon = async (event) => {
     event.preventDefault()
     const limit = event.target.limit.value
-    const offset = event.target.offset.value
+    const offset = event.target.offset.value - 1
 
     const bulkResponse = await fetch(`https://pokeapi.co/api/v2/pokemon/?limit=${limit}&offset=${offset}`)
     const bulkData = await bulkResponse.json()
@@ -180,6 +180,17 @@ const renderPokemons = () => {
             newPokemonTitle = `<h2>${pokeName}</h2>`
         }
 
+        let newPokemonImg
+        if (pokemon.id < 906) {
+            newPokemonImg = 
+            `<img src="${pokemon.sprite}" alt="" class="regular-img">
+             <img src="${pokemon.shiny}" alt="" class="hover-img">`
+        } else {
+            newPokemonImg = 
+            `<img src="${pokemon.sprite}" alt="" class="regular-img">
+             <img src="${pokemon.sprite}" alt="" class="hover-img">`
+        }
+
         let newPokemonTypes
         if (pokemon.types.length > 1) {
             newPokemonTypes = 
@@ -192,17 +203,6 @@ const renderPokemons = () => {
             `<div id="types-list">
                 <h4><span class="type ${pokemon.types[0]}"></span></h4>
             </div>`
-        }
-
-        let newPokemonImg
-        if (pokemon.id < 906) {
-            newPokemonImg = 
-            `<img src="${pokemon.sprite}" alt="" class="regular-img">
-             <img src="${pokemon.shiny}" alt="" class="hover-img">`
-        } else {
-            newPokemonImg = 
-            `<img src="${pokemon.sprite}" alt="" class="regular-img">
-             <img src="${pokemon.sprite}" alt="" class="hover-img">`
         }
 
         console.log(newPokemonImg)
