@@ -170,7 +170,12 @@ const renderPokemons = () => {
 
         let newPokemonTitle
         if (pokemon.nickname.length > 0) {
-            newPokemonTitle = `<h2>${pokemon.nickname}</h2>`
+            newPokemonTitle = `<h2>${pokemon.nickname}</h2>
+            <style>
+            #pokemon-${pokemon.id} h2 {
+                font-style: italic;
+            }
+            </style>`
         } else {
             newPokemonTitle = `<h2>${pokeName}</h2>`
         }
@@ -203,7 +208,7 @@ const renderPokemons = () => {
         console.log(newPokemonImg)
         
         const newPokemon = 
-            `<div class="pokemon">
+            `<div class="pokemon" id="pokemon-${pokemon.id}">
                 <button class="btn-close" onclick="removePokemon(event)">x</button>
                 <button class="btn-edit" onclick="renderEditModal('${pokemon.name}')">✎</button>
                 <p>#${pokemon.id}</p>
