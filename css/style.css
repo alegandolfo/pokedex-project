@@ -71,10 +71,18 @@ body {
 }
 
 .modal .modal-content {
-    width: 400px;
+    /*width: 40%;
+    height: 45%;*/
+
+    width: 25%;
+    height: 18%;
     min-width: 300px;
     min-height: 100px;
-    background: #373737;
+
+    background-image: url("/img/modal-background.png"), linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7));
+    background-position: center;
+    background-blend-mode: overlay;
+    
     border-radius: 20px;
     padding: 20px;
     position: relative;
@@ -101,16 +109,57 @@ body {
     margin: 0;
 }
 
-#add-pokemon form {
-    margin: 20px 0 0 0;
+form {
+    margin-top: 20px;
 }
 
-#add-bulk-pokemon form {
-    margin: 10px 0 0 0;
+form .text-line {
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
-#add-bulk-pokemon form .text-line {
-    margin: 0 0 10px 0;
+label {
+    font-size: medium;
+}
+
+input[type=text] {
+    width: 85%;
+    padding: 1% 1%;
+    border: 1px solid #FFF;
+    border-radius: 4px;
+    background-color: #333;
+    color: #FFF;
+    margin-top: 10px;
+}
+
+#add-bulk-pokemon input[type=text] {
+    margin-top: 0;
+}
+
+input[type=submit] {
+    padding: 1% 2%;
+    margin-top: 20px;
+    border: 2px solid #FFF;
+    border-radius: 10px;
+    background-color: #FFF;
+    color: #000;
+    font-size: small;
+    text-transform: uppercase;
+    font-weight: 600;
+    transition: all 0.2s ease-in;
+}
+
+#add-bulk-pokemon input[type=submit] {
+    margin-top: 10px;
+}
+
+input[type=submit]:hover {
+    border: 2px solid #000;
+    background-color: #000;
+    color: #FFF;
+    transition: all 0.2s ease-in;
 }
 
 #edit-pokemon form {
@@ -136,10 +185,10 @@ body {
     align-items: center;
     position: relative;
 
-    --s: 250px;   /*  size */
-    --b: 2px;     /* border */
-    --g: 0px;    /*  gap */
-    --c: #222; /* the color */
+    --s: 250px;
+    --b: 2px;
+    --g: 0px;
+    --c: #222;
     
     aspect-ratio: 1;
     outline-offset: calc(var(--s)/-2);
@@ -156,6 +205,7 @@ body {
 
 #pokemons-list .pokemon:hover .regular-img {
     /*display: none;*/
+
     position: absolute;
     opacity: 0;
     transition: opacity 0.5s ease-in;
@@ -163,6 +213,7 @@ body {
 
 #pokemons-list .pokemon:hover .hover-img {
     /*display: inline;*/
+
     opacity: 1;
     transition: opacity 0.5s ease-in;
 }
@@ -181,6 +232,7 @@ body {
 
 #pokemons-list .pokemon .regular-img {
     /*display: none;*/
+
     position: absolute;
     margin: 20%;
     opacity: 1;
@@ -189,6 +241,7 @@ body {
 
 #pokemons-list .pokemon .hover-img {
     /*display: none;*/
+
     position: absolute;
     margin: 20%;
     opacity: 0;
