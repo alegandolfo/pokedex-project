@@ -70,8 +70,6 @@ const addBulkPokemon = async (event) => {
             continue
         }
 
-        console.log(pokemonWasFound)
-
         try{
             const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${newPokemonName}`)
             const data = await response.json()
@@ -94,8 +92,11 @@ const addBulkPokemon = async (event) => {
             alert(error)
         }
     }
+    //const loader = document.querySelector(".loader")
     closeModal('#add-bulk-pokemon')
+    //loader.style.display = "block"
     renderPokemons()
+    //loader.style.display = "none"
 }
 
 const editPokemon = async (event, pokemonName) => {
@@ -128,7 +129,6 @@ const removePokemon = (event) => {
         return pokemon.id !== pokemonId
     })
     pokemonsList = newPokemonList
-    console.log(pokemonsList)
     renderPokemons()
 }
 
@@ -204,8 +204,6 @@ const renderPokemons = () => {
                 <h4><span class="type ${pokemon.types[0]}"></span></h4>
             </div>`
         }
-
-        console.log(newPokemonImg)
         
         const newPokemon = 
             `<div class="pokemon" id="pokemon-${pokemon.id}">
