@@ -120,7 +120,11 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-} 
+}
+
+.loader h2 {
+    font-size: xx-large;
+}
 
 form {
     margin-top: 20px;
