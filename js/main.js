@@ -27,6 +27,10 @@ const addPokemon = async (event) => {
         return
     }
 
+    const loader = document.querySelector(".loader")
+    closeModal('#add-pokemon')
+    loader.style.display = "flex"
+
     try{
         const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${newPokemonName}`)
         const data = await response.json()
@@ -42,7 +46,7 @@ const addPokemon = async (event) => {
 
             pokemonsList.push(newPokemon)
             renderPokemons()
-            closeModal('#add-pokemon')
+            loader.style.display = "none"
         }else{
             alert(`Pokémon not found!`)
         }
@@ -58,6 +62,10 @@ const addBulkPokemon = async (event) => {
 
     const bulkResponse = await fetch(`https://pokeapi.co/api/v2/pokemon/?limit=${limit}&offset=${offset}`)
     const bulkData = await bulkResponse.json()
+
+    const loader = document.querySelector(".loader")
+    closeModal('#add-bulk-pokemon')
+    loader.style.display = "flex"
 
     for (var j = 0; j < bulkData.results.length; j++) {
         const newPokemonName = bulkData.results[j].name.toLowerCase()
@@ -84,7 +92,6 @@ const addBulkPokemon = async (event) => {
                 const newPokemon = {name: newPokemonName, id: data.id, types: pokeTypes, nickname: '', sprite: pokeSprite, shiny: pokeShiny}
 
                 pokemonsList.push(newPokemon)
-                closeModal('#add-pokemon')
             }else{
                 alert(`Pokémon not found!`)
             }
@@ -92,11 +99,8 @@ const addBulkPokemon = async (event) => {
             alert(error)
         }
     }
-    //const loader = document.querySelector(".loader")
-    closeModal('#add-bulk-pokemon')
-    //loader.style.display = "block"
     renderPokemons()
-    //loader.style.display = "none"
+    loader.style.display = "none"
 }
 
 const editPokemon = async (event, pokemonName) => {
