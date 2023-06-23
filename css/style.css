@@ -122,6 +122,11 @@ body {
     align-items: center;
 }
 
+.loader img {
+    max-height: 40%;
+    max-width: 40%;
+}
+
 .loader h2 {
     font-size: xx-large;
 }
@@ -222,7 +227,6 @@ input[type=submit]:hover {
 #pokemons-list .pokemon:hover .regular-img {
     /*display: none;*/
 
-    position: absolute;
     opacity: 0;
     transition: opacity 0.5s ease-in;
 }
@@ -250,7 +254,8 @@ input[type=submit]:hover {
     /*display: none;*/
 
     position: absolute;
-    margin: 20%;
+    size: 20%;
+    margin-top: 23%;
     opacity: 1;
     transition: opacity 0.5s ease-in;
 }
@@ -259,7 +264,7 @@ input[type=submit]:hover {
     /*display: none;*/
 
     position: absolute;
-    margin: 20%;
+    margin-top: 23%;
     opacity: 0;
     transition: opacity 0.5s ease-in;
 }
