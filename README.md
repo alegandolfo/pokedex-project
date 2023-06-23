@@ -16,7 +16,7 @@ Then, simply run the file in a local server.
 
 > Made with PokéAPI (https://pokeapi.co)
 
-> Made with \[Pokemon Types CSS]\(https://github.com/justingolden21/pokemon-types-css)
+> Made with \[Pokemon Types CSS] \(https://github.com/justingolden21/pokemon-types-css)
 
 ## License
 
