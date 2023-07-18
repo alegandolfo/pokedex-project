@@ -59,13 +59,13 @@ const addPokemon = async (event) => {
 
             pokemonsList.push(newPokemon)
             renderPokemons()
-            loader.style.display = "none"
         }else{
             alert(`Pokémon not found!`)
         }
     } catch (error){
         alert(error)
     }
+    loader.style.display = "none"
 }
 
 const addBulkPokemon = async (event) => {
