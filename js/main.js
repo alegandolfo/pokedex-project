@@ -14,6 +14,16 @@ const handleModalClose = (event) => {
     }
 }
 
+const getFormattedPokemonName = (pName) => {
+    let pokeName = pName.split('-')
+    for (var i = 0; i < pokeName.length; i++) {
+        pokeName[i] = pokeName[i].charAt(0).toUpperCase() + pokeName[i].slice(1);
+    }
+    pokeName = pokeName.join('-')
+
+    return pokeName
+}
+
 const addPokemon = async (event) => {
     event.preventDefault()
     const newPokemonName = event.target.pokemon.value.toLowerCase()
@@ -172,12 +182,6 @@ const renderPokemons = () => {
     const divPokemonsList = document.querySelector("#pokemons-list")
     divPokemonsList.innerHTML = ''
     pokemonsList.forEach((pokemon) => {
-        let pokeName = pokemon.name.split('-')
-        for (var i = 0; i < pokeName.length; i++) {
-            pokeName[i] = pokeName[i].charAt(0).toUpperCase() + pokeName[i].slice(1);
-        }
-        pokeName = pokeName.join('-')
-
         let newPokemonTitle
         if (pokemon.nickname.length > 0) {
             newPokemonTitle = `<h2>${pokemon.nickname}</h2>
@@ -187,7 +191,7 @@ const renderPokemons = () => {
             }
             </style>`
         } else {
-            newPokemonTitle = `<h2>${pokeName}</h2>`
+            newPokemonTitle = `<h2>${getFormattedPokemonName(pokemon.name)}</h2>`
         }
 
         let newPokemonImg
@@ -253,11 +257,6 @@ const renderEditModal = (pName) => {
 
 const renderInfoModal = (pName) => {
     const pokemon = pokemonsList.find(function (x) {return x.name == pName})
-    let pokeName = pokemon.name.split('-')
-        for (var i = 0; i < pokeName.length; i++) {
-            pokeName[i] = pokeName[i].charAt(0).toUpperCase() + pokeName[i].slice(1);
-        }
-        pokeName = pokeName.join('-')
 
     const divPokemonModal = document.querySelector("#pokemon-info")
     divPokemonModal.innerHTML = ''
@@ -271,7 +270,7 @@ const renderInfoModal = (pName) => {
     
     let pokemonModal = 
         `<div class="modal-content">
-            <h1>${pokeName}</h1>
+            <h1>${getFormattedPokemonName(pokemon.name)}</h1>
             <button class="btn-close" onclick="closeModal('#pokemon-info')">x</button>
             <div id="pokeStats">
                 <div class="statBar" id="hpBar">HP: ${pokemon.hp}</div>
