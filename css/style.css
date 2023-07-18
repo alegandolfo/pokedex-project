@@ -88,6 +88,11 @@ body {
     position: relative;
 }
 
+#pokemon-info .modal-content {
+    width: 40%;
+    height: 45%;
+}
+
 .modal form.text-line {
     margin-top: 10px;
 }
@@ -107,6 +112,17 @@ body {
 
 .modal .modal-content h1 {
     margin: 0;
+}
+
+#pokeStats {
+    width: 100%;
+}
+
+.statBar {
+    line-height: 100%;
+    color: white;
+    padding: 1%;
+    margin: 2% 0;
 }
 
 .loader {
@@ -225,16 +241,14 @@ input[type=submit]:hover {
 }
 
 #pokemons-list .pokemon:hover .regular-img {
-    /*display: none;*/
-
     opacity: 0;
     transition: opacity 0.5s ease-in;
 }
 
 #pokemons-list .pokemon:hover .hover-img {
-    /*display: inline;*/
-
+    cursor: pointer;
     opacity: 1;
+    outline: 1px solid #ff3131;
     transition: opacity 0.5s ease-in;
 }
 
@@ -251,8 +265,6 @@ input[type=submit]:hover {
 }
 
 #pokemons-list .pokemon .regular-img {
-    /*display: none;*/
-
     position: absolute;
     size: 20%;
     margin-top: 23%;
@@ -261,8 +273,6 @@ input[type=submit]:hover {
 }
 
 #pokemons-list .pokemon .hover-img {
-    /*display: none;*/
-
     position: absolute;
     margin-top: 23%;
     opacity: 0;

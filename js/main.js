@@ -42,7 +42,10 @@ const addPokemon = async (event) => {
             const pokeSprite = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${data.id}.png`
             const pokeShiny = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/${data.id}.png`
 
-            const newPokemon = {name: newPokemonName, id: data.id, types: pokeTypes, nickname: '', sprite: pokeSprite, shiny: pokeShiny}
+            const newPokemon = {name: newPokemonName, id: data.id, types: pokeTypes, nickname: '', 
+                                hp: data.stats[0].base_stat, atk: data.stats[1].base_stat, def: data.stats[2].base_stat, 
+                                spatk: data.stats[3].base_stat, spdef: data.stats[4].base_stat, speed: data.stats[5].base_stat, 
+                                sprite: pokeSprite, shiny: pokeShiny}
 
             pokemonsList.push(newPokemon)
             renderPokemons()
@@ -89,7 +92,10 @@ const addBulkPokemon = async (event) => {
                 const pokeSprite = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${data.id}.png`
                 const pokeShiny = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/${data.id}.png`
 
-                const newPokemon = {name: newPokemonName, id: data.id, types: pokeTypes, nickname: '', sprite: pokeSprite, shiny: pokeShiny}
+                const newPokemon = {name: newPokemonName, id: data.id, types: pokeTypes, nickname: '', 
+                                    hp: data.stats[0].base_stat, atk: data.stats[1].base_stat, def: data.stats[2].base_stat, 
+                                    spatk: data.stats[3].base_stat, spdef: data.stats[4].base_stat, speed: data.stats[5].base_stat, 
+                                    sprite: pokeSprite, shiny: pokeShiny}
 
                 pokemonsList.push(newPokemon)
             }else{
@@ -188,11 +194,11 @@ const renderPokemons = () => {
         if (pokemon.id < 906) {
             newPokemonImg = 
             `<img src="${pokemon.sprite}" alt="" class="regular-img">
-             <img src="${pokemon.shiny}" alt="" class="hover-img">`
+             <img src="${pokemon.shiny}" alt="" class="hover-img" onclick="renderInfoModal('${pokemon.name}')">`
         } else {
             newPokemonImg = 
             `<img src="${pokemon.sprite}" alt="" class="regular-img">
-             <img src="${pokemon.sprite}" alt="" class="hover-img">`
+             <img src="${pokemon.sprite}" alt="" class="hover-img" onclick="renderInfoModal('${pokemon.name}')">`
         }
 
         let newPokemonTypes
@@ -245,20 +251,72 @@ const renderEditModal = (pName) => {
     openModal('#edit-pokemon')
 }
 
+const renderInfoModal = (pName) => {
+    const pokemon = pokemonsList.find(function (x) {return x.name == pName})
+    let pokeName = pokemon.name.split('-')
+        for (var i = 0; i < pokeName.length; i++) {
+            pokeName[i] = pokeName[i].charAt(0).toUpperCase() + pokeName[i].slice(1);
+        }
+        pokeName = pokeName.join('-')
+
+    const divPokemonModal = document.querySelector("#pokemon-info")
+    divPokemonModal.innerHTML = ''
+    
+    const hpbar = pokemon.hp / 3
+    const atkbar = pokemon.atk / 3
+    const defbar = pokemon.def / 3
+    const spatkbar = pokemon.spatk / 3
+    const spdefbar = pokemon.spdef / 3
+    const speedbar = pokemon.speed / 3
+    
+    let pokemonModal = 
+        `<div class="modal-content">
+            <h1>${pokeName}</h1>
+            <button class="btn-close" onclick="closeModal('#pokemon-info')">x</button>
+            <div id="pokeStats">
+                <div class="statBar" id="hpBar">HP: ${pokemon.hp}</div>
+                <div class="statBar" id="atkBar">Attack: ${pokemon.atk}</div>
+                <div class="statBar" id="defBar">Defense: ${pokemon.def}</div>
+                <div class="statBar" id="spatkBar">Sp. Atk: ${pokemon.spatk}</div>
+                <div class="statBar" id="spdefBar">Sp. Def: ${pokemon.spdef}</div>
+                <div class="statBar" id="speedBar">Speed: ${pokemon.speed}</div>
+            </div>
+            <style>
+            #hpBar {
+                width: ${hpbar}%;
+                background-color: #FF0000;
+            }
+            #atkBar {
+                width: ${atkbar}%;
+                background-color: #F08030;
+            }
+            #defBar {
+                width: ${defbar}%;
+                background-color: #F8D030;
+            }
+            #spatkBar {
+                width: ${spatkbar}%;
+                background-color: #6890F0;
+            }
+            #spdefBar {
+                width: ${spdefbar}%;
+                background-color: #78C850;
+            }
+            #speedBar {
+                width: ${speedbar}%;
+                background-color: #F85888;
+            }
+            </style>
+        </div>`
+    
+    divPokemonModal.innerHTML = pokemonModal
+    openModal('#pokemon-info')
+}
+
 const modal = document.querySelector(".modal")
 modal.addEventListener("click", handleModalClose)
 
 addPokemonsEvents()
 
-let pokemonsList = [
-    {name: 'bulbasaur', id: 1, types: ['grass', 'poison'], nickname: 'Jorge', sprite: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png', shiny: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/1.png'}, 
-    {name: 'ivysaur', id: 2, types: ['grass', 'poison'], nickname: 'Jorge',  sprite: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/2.png', shiny: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/2.png'}, 
-    {name: 'venusaur', id: 3, types: ['grass', 'poison'], nickname: 'Jorge',  sprite: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/3.png', shiny: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/3.png'}, 
-    {name: 'charmander', id: 4, types: ['fire'], nickname: '',  sprite: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/4.png', shiny: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/4.png'}, 
-    {name: 'charmeleon', id: 5, types: ['fire'], nickname: '',  sprite: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/5.png', shiny: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/5.png'}, 
-    {name: 'charizard', id: 6, types: ['fire', 'flying'], nickname: '',  sprite: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/6.png', shiny: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/6.png'}, 
-    {name: 'squirtle', id: 7, types: ['water'], nickname: '',  sprite: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/7.png', shiny: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/7.png'}, 
-    {name: 'wartortle', id: 8, types: ['water'], nickname: '',  sprite: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/8.png', shiny: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/8.png'}, 
-    {name: 'blastoise', id: 9, types: ['water'], nickname: '',  sprite: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/9.png', shiny: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/9.png'}
-]
+let pokemonsList = []
 renderPokemons()
