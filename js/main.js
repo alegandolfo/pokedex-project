@@ -129,7 +129,10 @@ const editPokemon = async (event, pokemonName) => {
 
     const newPokemonList = pokemonsList.map((pokemon) => {
         if(pokemon.name === pokemonName){
-            return {name: pokemon.name, id: pokemon.id, types: pokemon.types, nickname: newPokemonNickname, sprite: pokemon.sprite, shiny: pokemon.shiny}
+            return {name: pokemon.name, id: pokemon.id, types: pokemon.types, nickname: newPokemonNickname, 
+                    hp: pokemon.hp, atk: pokemon.atk, def: pokemon.def, 
+                    spatk: pokemon.spatk, spdef: pokemon.spdef, speed: pokemon.speed, 
+                    sprite: pokemon.sprite, shiny: pokemon.shiny}
         } else {
             return pokemon
         }
