@@ -71,8 +71,13 @@ body {
 }
 
 @keyframes fading {
-    0% { opacity: 0; transform: scale(0.5);}
-    100% { opacity: 1; transform: scale(1);}
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+@keyframes surge {
+    0% { transform: scale(0.5); }
+    100% { transform: scale(1); }
 }
 
 .modal .modal-content {
@@ -244,14 +249,14 @@ input[type=submit]:hover {
 
 #pokemons-list .pokemon:hover .regular-img {
     opacity: 0;
-    transition: opacity 0.5s ease-in;
+    transition: opacity 0.5s ease;
 }
 
 #pokemons-list .pokemon:hover .hover-img {
     cursor: pointer;
     opacity: 1;
     outline: 1px solid #ff3131;
-    transition: opacity 0.5s ease-in;
+    transition: opacity 0.5s ease;
 }
 
 #pokemons-list .pokemon p {
@@ -271,14 +276,14 @@ input[type=submit]:hover {
     size: 20%;
     margin-top: 23%;
     opacity: 1;
-    transition: opacity 0.5s ease-in;
+    transition: opacity 0.5s ease;
 }
 
 #pokemons-list .pokemon .hover-img {
     position: absolute;
     margin-top: 23%;
     opacity: 0;
-    transition: opacity 0.5s ease-in;
+    transition: opacity 0.5s ease;
 }
 
 #pokemons-list .pokemon h2 {
@@ -290,13 +295,13 @@ input[type=submit]:hover {
     text-transform: uppercase;
     text-shadow: 2px 2px rgba(0,0,0, 0.2);
     font-weight: 600;
-    transition: all 0.2s ease-in;
+    transition: all 0.2s ease;
 }
 
 #pokemons-list .pokemon span.type:hover {
     background-color: black;
     text-shadow: 2px 2px rgba(255,255,255, 0.2);
-    transition: all 0.2s ease-in;
+    transition: all 0.2s ease;
 }
 
 #types-list {
