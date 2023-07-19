@@ -2,12 +2,16 @@ const openModal = (idModal) => {
     const divModal = document.querySelector(idModal)
     const modalContent = divModal.querySelector('.modal-content')
     divModal.style.display = "flex"
-    divModal.style.animation = 'fading .2s'
-    modalContent.style.animation = 'surge .2s'
+    divModal.style.animation = 'fadeIn .2s'
+    modalContent.style.animation = 'appear .2s'
 }
 
-const closeModal = (idModal) => {
+const closeModal = async (idModal) => {
     const divModal = document.querySelector(idModal)
+    const modalContent = divModal.querySelector('.modal-content')
+    divModal.style.animation = 'fadeOut .2s'
+    modalContent.style.animation = 'disappear .2s'
+    await new Promise(r => setTimeout(r, 180))
     divModal.style.display = "none"
 }
 
