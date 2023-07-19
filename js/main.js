@@ -1,6 +1,8 @@
 const openModal = (idModal) => {
     const divModal = document.querySelector(idModal)
+    const modalContent = divModal.querySelector('.modal-content')
     divModal.style.display = "flex"
+    modalContent.style.animation = 'fading .5s'
 }
 
 const closeModal = (idModal) => {
