@@ -127,6 +127,10 @@ body {
     cursor: pointer;  
 }
 
+.modal .modal-content button.btn-close:hover {
+    color: #ff3131;
+}
+
 .modal .modal-content h1 {
     margin: 0;
 }
