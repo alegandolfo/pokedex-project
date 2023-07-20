@@ -257,18 +257,6 @@ input[type=submit]:hover {
     transition: all .2s ease;
 }
 
-#pokemons-list .pokemon:hover .regular-img {
-    opacity: 0;
-    transition: opacity 0.5s ease;
-}
-
-#pokemons-list .pokemon:hover .hover-img {
-    cursor: pointer;
-    opacity: 1;
-    outline: 1px solid #ff3131;
-    transition: opacity 0.5s ease;
-}
-
 #pokemons-list .pokemon p {
     position: absolute;
     top: -15px;
@@ -293,6 +281,17 @@ input[type=submit]:hover {
     position: absolute;
     margin-top: 23%;
     opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+#pokemons-list .pokemon .regular-img:hover {
+    opacity: 0;
+    transition: opacity 0.5s ease;;
+}
+
+#pokemons-list .pokemon .hover-img:hover {
+    cursor: pointer;
+    opacity: 1;
     transition: opacity 0.5s ease;
 }
 
