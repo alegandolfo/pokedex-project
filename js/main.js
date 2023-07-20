@@ -17,7 +17,7 @@ const closeModal = async (idModal) => {
 
 const handleModalClose = (event) => {
     if(event.target.className === "modal"){
-        event.target.style.display = "none"
+        closeModal(`#${event.target.id}`)
     }
 }
 
@@ -322,8 +322,14 @@ const renderInfoModal = (pName) => {
     openModal('#pokemon-info')
 }
 
-const modal = document.querySelector(".modal")
-modal.addEventListener("click", handleModalClose)
+const addPokemonModal = document.getElementById("add-pokemon")
+const addBulkPokemonModal = document.getElementById("add-bulk-pokemon")
+const editPokemonModal = document.getElementById("edit-pokemon")
+const pokemonInfoModal = document.getElementById("pokemon-info")
+addPokemonModal.addEventListener("click", handleModalClose)
+addBulkPokemonModal.addEventListener("click", handleModalClose)
+editPokemonModal.addEventListener("click", handleModalClose)
+pokemonInfoModal.addEventListener("click", handleModalClose)
 
 addPokemonsEvents()
 
